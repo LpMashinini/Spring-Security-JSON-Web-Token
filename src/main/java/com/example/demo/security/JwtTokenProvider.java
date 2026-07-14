@@ -61,7 +61,7 @@ public class JwtTokenProvider {
         return username;
     }
 
-    //Validate Jwt token
+    //Validate Jwt token and handle possible exceptions
     public boolean validateToken(String token){
 
         try{
