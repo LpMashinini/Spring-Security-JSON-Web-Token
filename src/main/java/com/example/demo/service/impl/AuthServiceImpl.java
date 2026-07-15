@@ -1,8 +1,6 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dto.LoginDto;
-import com.example.demo.dto.SignUpDto;
-import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.security.JwtTokenProvider;
 import com.example.demo.service.AuthService;
@@ -44,26 +42,5 @@ public class AuthServiceImpl implements AuthService {
         return token;
     }
 
-    @Override
-    public String signUp(SignUpDto signUpDto) {
 
-        User user = new User();
-        user.setName(signUpDto.getName());
-        user.setEmail(signUpDto.getEmail());
-        user.setUsername(signUpDto.getUsername());
-        user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
-        userRepository.save(user); //save user to the database
-
-        // authenticate user
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                signUpDto.getUsername(),
-                signUpDto.getPassword()
-        ));
-
-        SecurityContextHolder.getContext().setAuthentication(authentication); // store user after authentication
-
-        String token = jwtTokenProvider.generateToken(authentication);
-
-        return token;
-    }
 }
