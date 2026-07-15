@@ -20,6 +20,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     //ensure filters runs once per request not multiple times
 
     private JwtTokenProvider jwtTokenProvider;
+
     private UserDetailsService userDetailsService;
 
     public JwtAuthenticationFilter(JwtTokenProvider jwtTokenProvider, UserDetailsService userDetailsService) {
@@ -62,7 +63,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String bearerToken  = request.getHeader("Authorization");
 
-        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer")){
+        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")){
             return bearerToken.substring(7, bearerToken.length());
         }
 
