@@ -17,6 +17,7 @@ import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+    //ensure filters runs once per request not multiple times
 
     private JwtTokenProvider jwtTokenProvider;
     private UserDetailsService userDetailsService;
@@ -66,5 +67,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         return null;
+
     }
 }
