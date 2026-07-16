@@ -20,3 +20,11 @@ This repository is the result of my journey learning **JWT (JSON Web Token)** an
 - JWT token generation and validation
 - Role-based access control 
 - Token expiration handling
+
+---
+## STACK
+- Java 21+
+- Spring boot
+- Spring Security
+- JWT dependencies
+- MYSQL
